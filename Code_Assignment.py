@@ -37,6 +37,7 @@ outliers = find_outliers(data['Price'])
 
 # Finding the top 5 highest outliers
 top_5_outliers = data.loc[data['Price'].isin(outliers)].nlargest(5, 'Price')
+top_5_lowest_outliers = data.loc[data['Price'].isin(outliers)].nsmallest(5, 'Price')
 
 # Printing outliers and statistical summary
 print("Outliers:\n", outliers)
@@ -51,5 +52,9 @@ print("Kurtosis: ", data['Price'].kurtosis())
 # Print the top 5 highest outliers with their dates
 print("Top 5 highest outliers:")
 print(top_5_outliers[['Date', 'Price']])
+
+# Print the top 5 lowest outliers with their dates
+print("Top 5 lowest outliers:")
+print(top_5_lowest_outliers[['Date', 'Price']])
 
 

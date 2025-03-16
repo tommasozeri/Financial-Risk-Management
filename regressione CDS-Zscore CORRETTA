@@ -1,0 +1,99 @@
+import pandas as pd
+from scipy.stats import zscore
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+import numpy as np
+
+# Creazione del DataFrame con i dati di esempio
+data = {
+    'Anno': [2020, 2021, 2022, 2023, 2024],
+    'CDS': [22.5, 17.5, 12.5, 32.5, 27.5],  # Variabile dipendente (CDS, in punti base)
+    'Z-score': [3.182, 0.483, 1.488, 2.393, 2.339]  # Variabile indipendente (Z-score)
+}
+
+df = pd.DataFrame(data)
+
+# Calcolo degli Z-score standardizzati
+df['Z_score_std'] = zscore(df['Z-score'])
+
+# Definizione delle variabili per la regressione
+X = df[['Z-score']]
+y = df['CDS']
+
+# Creazione e addestramento del modello di regressione lineare
+model = LinearRegression()
+model.fit(X, y)
+
+# Previsione dei valori di CDS con il modello
+y_pred = model.predict(X)
+
+# Calcolo degli Z-score aggiustati dai valori dei CDS
+adjusted_zscore = (y - model.intercept_) / model.coef_[0]
+df['Z-score Aggiustato'] = adjusted_zscore
+
+# Valutazione del modello
+mse = mean_squared_error(y, y_pred)
+r2 = r2_score(y, y_pred)
+std_dev = np.std(y - y_pred, ddof=1)
+
+# Stampa del DataFrame aggiornato
+print("DataFrame con Z-score aggiustati:")
+print(df[['Anno', 'CDS', 'Z-score', 'Z-score Aggiustato']])
+
+# Stampa delle statistiche del modello
+print(f"\nCoefficiente (Pendenza): {model.coef_[0]:.4f}")
+print(f"Intercetta: {model.intercept_:.4f}")
+print(f"MSE (Mean Squared Error): {mse:.2f}")
+print(f"R^2 (Coefficiente di determinazione): {r2:.2f}")
+print(f"Deviazione standard degli errori: {std_dev:.4f}")
+
+# Previsione dei futuri Z-score per i prossimi 5 anni
+X_years = df[['Anno']]
+model_z = LinearRegression()
+model_z.fit(X_years, df['Z-score'])
+
+future_years = np.array([2025, 2026, 2027, 2028, 2029]).reshape(-1, 1)
+future_z_scores = model_z.predict(future_years)
+
+# Previsione dei valori di Z-score
+z_pred = model_z.predict(X_years)
+
+# Calcolo delle statistiche per il modello di previsione Z-score
+mse_z = mean_squared_error(df['Z-score'], z_pred)
+r2_z = r2_score(df['Z-score'], z_pred)
+std_dev_z = np.std(df['Z-score'] - z_pred, ddof=1)
+
+# Stampa delle previsioni dei futuri Z-score
+print("\nPrevisione dei futuri Z-score per i prossimi 5 anni:")
+for year, z_score in zip(future_years.flatten(), future_z_scores):
+    print(f"Anno {year}: Z-score previsto = {z_score:.4f}")
+
+# Stampa delle statistiche del modello di previsione Z-score
+print(f"\nStatistiche modello Z-score:")
+print(f"Coefficiente (Pendenza): {model_z.coef_[0]:.4f}")
+print(f"Intercetta: {model_z.intercept_:.4f}")
+print(f"MSE (Mean Squared Error): {mse_z:.2f}")
+print(f"R^2 (Coefficiente di determinazione): {r2_z:.2f}")
+print(f"Deviazione standard degli errori: {std_dev_z:.4f}")
+
+# Previsione dei CDS futuri utilizzando i nuovi Z-score previsti
+future_cds = model.predict(future_z_scores.reshape(-1, 1))
+
+# Calcolo delle statistiche per il modello di previsione CDS futuro
+future_cds_pred = model.predict(future_z_scores.reshape(-1, 1))
+mse_cds_future = mean_squared_error(future_cds, future_cds_pred)
+r2_cds_future = r2_score(future_cds, future_cds_pred)
+std_dev_cds_future = np.std(future_cds - future_cds_pred, ddof=1)
+
+# Stampa delle previsioni dei futuri CDS
+print("\nPrevisione dei futuri CDS per i prossimi 5 anni:")
+for year, cds in zip(future_years.flatten(), future_cds):
+    print(f"Anno {year}: CDS previsto = {cds:.4f}")
+
+# Stampa delle statistiche corrette per il modello CDS futuro
+print(f"\nStatistiche modello CDS (previsione futura):")
+print(f"Coefficiente (Pendenza): {model.coef_[0]:.4f}")
+print(f"Intercetta: {model.intercept_:.4f}")
+print(f"MSE (Mean Squared Error): {mse_cds_future:.2f}")
+print(f"R^2 (Coefficiente di determinazione): {r2_cds_future:.2f}")
+print(f"Deviazione standard degli errori: {std_dev_cds_future:.4f}")

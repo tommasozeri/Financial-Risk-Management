@@ -1,13 +1,27 @@
-% Caricamento del file Excel
-file_path = 'CDS_historical_UE.xlsx';
+% Carica il file Excel
+file_path = 'CDSSPREADS.xlsx';
 data = readtable(file_path);
 
-% Controllo che la colonna "Date" sia in formato datetime
+% Verifica che la colonna "Date" sia in formato datetime
 if ~isdatetime(data.Date)
     data.Date = datetime(data.Date, 'InputFormat', 'MM/dd/yyyy');
 end
 
-% Ordinamento dei dati in ordine crescente di data
+% Sostituisci stringhe 'NaN' con valori NaN in tutte le colonne eccetto "Date"
+for i = 2:width(data)
+    col = data{:, i};
+    if iscell(col) % Se è una cella con stringhe
+        col(strcmpi(col, 'NaN')) = {NaN}; % Sostituisci 'NaN' con NaN
+        data{:, i} = cell2mat(col); % Converti da cell array a vettore numerico
+    end
+end
+
+% Interpolazione dei valori mancanti per ogni serie
+for i = 2:width(data)
+    data{:, i} = fillmissing(data{:, i}, 'linear'); % Interpolazione lineare dei NaN
+end
+
+% Ordina i dati in ordine crescente di data
 data = sortrows(data, 'Date');
 
 % Calcolo di statistiche per ciascun paese (senza normalizzazione)
@@ -15,7 +29,6 @@ fprintf('\nStatistiche per Paese:\n');
 for i = 2:width(data)
     country = data.Properties.VariableNames{i};
     col = data{:, i};
-    col = col(~isnan(col)); % Ignora eventuali valori NaN
     
     % Calcolo delle metriche
     std_dev = std(col);
@@ -42,7 +55,7 @@ for i = 2:width(data)
     hold on;
     for w = windows
         rolling_volatility = movstd(col, w, 'omitnan');
-        plot(data.Date(w:end), rolling_volatility(w:end), 'DisplayName', [num2str(w) ' gg']);
+        plot(data.Date, rolling_volatility, 'DisplayName', [num2str(w) ' gg']);
     end
     title(['Rolling Volatility - ', country], 'Interpreter', 'none');
     xlabel('Data');
@@ -92,8 +105,6 @@ for i = 2:width(data)
 end
 sgtitle('Boxplot dei Valori per Paese');
 
-
-
 % Heatmap delle correlazioni tra le serie storiche
 correlation_matrix = corr(data{:, 2:end}, 'Rows', 'pairwise'); % Matrice di correlazione
 figure;
@@ -105,3 +116,17 @@ heatmap(data.Properties.VariableNames(2:end), ...
 title('Heatmap delle Correlazioni tra le Serie Storiche');
 xlabel('Paesi');
 ylabel('Paesi');
+
+% Plotta ogni serie storica individualmente
+for i = 2:width(data)
+    country = data.Properties.VariableNames{i};
+    col = data{:, i};
+    
+    % Crea una nuova figura per ogni paese
+    figure;
+    plot(data.Date, col, 'LineWidth', 1.5);
+    title(['Serie Storica - ', country], 'Interpreter', 'none');
+    xlabel('Data');
+    ylabel('Spread');
+    grid on;
+end

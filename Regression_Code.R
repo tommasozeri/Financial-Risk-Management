@@ -7,19 +7,6 @@ library(tibble)
 library(purrr)
 library(splines)
 
-## Importazione dei dati e sistemazione dati
-
-# gdp_uk_final <- read_excel("UK_GDP_Data.xls") %>%
-  # select(-1, -2, -3, -4)
-# gdp_uk_final <- as.data.frame(t(gdp_uk_final))
-# rownames(gdp_uk_final) <- colnames(gdp_uk_final)
-# colnames(gdp_uk_final) <- c("Values")
-# gdp_uk_final <- rbind(gdp_uk_final, c(2559803000000))
-# rownames(gdp_uk_final)[length(rownames(gdp_uk_final))] <- "2024"
-
-#CAMBIARE FILE PATH
-
-
 #CDS UK
 cds_uk_final <- read_excel("CDSSPREADS.xlsx") %>%
   select(-2, -3, -5, -6, -7, -8)
@@ -350,12 +337,6 @@ print(ge_summary_lm)
 #Anche se vuoi includere la variabile una sola volta, potresti considerare l'uso di una spline 
 #o di una regressione segmentata, che consente di modellare non linearità e punti di flesso 
 #senza introdurre esplicitamente potenze superiori della variabile:
-
-# Regressione Non Lineare - esempio con un modello polinomiale
- #nls_model <- nls(CDS_Price ~ a * Oil_Price + b * EUR_GBP^2, data = combined_data, start = list(a = 1, b = 1))
-# summary_nls <- summary(nls_model)
-# print(summary_nls)
-
 
 # Grafico scatter plot per CDS_Price vs Oil_Price
 ggplot(combined_data, aes(x = Oil_Price, y = CDS_Price)) +

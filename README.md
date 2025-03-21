@@ -13,11 +13,7 @@ Interpolates missing values using linear interpolation.
 Sorts the dataset in ascending chronological order.
 2. Statistical Analysis for Each Country
 For each country (each column except "Date"), the code computes and displays:
-
-Standard deviation (volatility measure).
-Skewness (distribution asymmetry).
-Kurtosis (distribution shape).
-Mean, median, max, and min values.
+Standard deviation (volatility measure). Skewness (distribution asymmetry). Kurtosis (distribution shape). Mean, median, max, and min values.
 3. Rolling Volatility Calculation and Plotting
 Computes moving standard deviation for three rolling windows (20, 50, and 100 days).
 Plots the rolling volatility for each country in a separate figure.

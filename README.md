@@ -1,7 +1,7 @@
 # Predictive Modeling of CDS Spreads
 ## Team Work Assignment - Model and Code Overview - Group 11
 
-## 1) CDS Statistics script
+## 1) CDS Statistics
 This MATLAB script processes, analyzes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx), likely containing Credit Default Swap (CDS) spreads for multiple countries.
 
 ##### How the Code Works
@@ -90,8 +90,8 @@ Helps analyze trends and patterns in the data separately.
 
 ---
 
-## 2) Analysis of the Relationship Between CDS and Economic Variables - script
-This code performs a statistical analysis to study the relationship between Credit Default Swap prices for various countries and a series of economic and financial variables. It utilizes the R programming language and several libraries for data import, manipulation, analysis, and visualization.
+## 2) Analysis of the Relationship Between CDS and Economic Variables 
+This script performs a statistical analysis to study the relationship between Credit Default Swap prices for various countries and a series of economic and financial variables. It utilizes the R programming language and several libraries for data import, manipulation, analysis, and visualization.
 
 ##### Requirements
 To run the code, you need to have the following R libraries installed:
@@ -133,7 +133,7 @@ This script was really useful because it highlited the correlation between the C
 
 ---
 
-## 3)UK ANALYSIS
+## 3)United Kingdom Analysis
 
 ##### Overview
 This repository contains three Python scripts that perform financial risk analysis using economic indicators. The scripts estimate the coefficients for a Z-Score model, calculate the Z-Score for given economic conditions, and use regression analysis to predict Credit Default Swaps (CDS) values based on Z-Scores.

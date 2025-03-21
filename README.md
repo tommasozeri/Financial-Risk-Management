@@ -1,6 +1,6 @@
 # Financial-Risk-Management
 
-**1)CDS STATISTICS script**%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+## 1) CDS STATISTICS script
 This MATLAB script processes, analyzes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx), likely containing Credit Default Swap (CDS) spreads for multiple countries.
 
 How the Code Works
@@ -38,7 +38,8 @@ Use Case
 This script is useful for financial risk management, particularly in analyzing how different countries' CDS spreads behave over time, their volatility, and their correlations.
 
 
-**CDS Time Series script**%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+### CDS Time Series script
 This MATLAB script processes time series data from an Excel file (CDSSPREADS.xlsx), typically containing CDS spreads for different countries. The goal is to clean, normalize, align, and visualize the data for comparative analysis.
 
 How the Code Works
@@ -68,7 +69,7 @@ Expected Output
 A graph where each country’s CDS spread follows a common scale.
 Helps analyze trends, correlations, and relative performance between countries.
 
-**INTERPOLATED_HS** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### Interpolated Time Series
 This MATLAB script reads, processes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx). The purpose is to handle missing values and generate individual plots for each series.
 
 How the Code Works
@@ -89,9 +90,9 @@ Expected Output
 Multiple figures, each displaying a different time series.
 Helps analyze trends and patterns in the data separately.
 
+---
 
-%%%%% **2)Analysis of the Relationship Between CDS and Economic Variables - script** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+## 2) Analysis of the Relationship Between CDS and Economic Variables - script
 This code performs a statistical analysis to study the relationship between Credit Default Swap prices for various countries and a series of economic and financial variables. It utilizes the R programming language and several libraries for data import, manipulation, analysis, and visualization.
 
 Requirements
@@ -112,7 +113,7 @@ After importing, the code performs the following operations:
 - Converts dates to `Date` format and selects only the relevant column of the closing price of the time series data. Then it renames columns for better readability.
 - Merges datasets based on date, retaining only common rows and converts variables to numeric format for statistical analysis.
 
-**Linear Regression Models** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### Linear Regression Models
 A separate linear regression is performed for each country, where the dependent variable is the CDS price, while the independent variables include:
 - Oil and gas prices.
 - Exchange rates.
@@ -121,7 +122,7 @@ A separate linear regression is performed for each country, where the dependent 
 The regression functions incorporate cubic splines (`bs()`) and natural polynomial functions (`ns()`) to capture nonlinear relationships between variables, where the knots where decided looking at the scatter plots below in the code.
 Linear Rgeression summaries were also printed for better readability and analysis and shown to be later used in the paper.
 
-%%% **Visualization of Results** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### Visualization of Results
 To better understand the relationship between CDS and economic variables and use them to decide the knots for the functions decided later scatter plots (`ggplot2`) are created to show the relationship between:
 - CDS vs Oil price.
 - CDS vs EUR/GBP exchange rate.
@@ -132,54 +133,56 @@ After this, some other scatter plots, including the linear regression line in re
 
 This script was really useful because it highlited the correlation between the CDS prices and the various varible s that we included in the regression which were picked by us in a way that they would also reflect the different macroeconomic conditions that had affected the time period that was taken into consideration in the analysis. 
 
-%%% **3)UK ANALYSIS** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+---
 
-## Overview
+## 3)UK ANALYSIS
+
+### Overview
 This repository contains three Python scripts that perform financial risk analysis using economic indicators. The scripts estimate the coefficients for a Z-Score model, calculate the Z-Score for given economic conditions, and use regression analysis to predict Credit Default Swaps (CDS) values based on Z-Scores.
 
 ---
 
-## 1. Estimation of Z-Score Coefficients
+### 1. Estimation of Z-Score Coefficients
 
-### **File**: `estimate_zscore_coefficients.py`
+#### **File**: `estimate_zscore_coefficients.py`
 
-### **Description**
+#### **Description**
 This script estimates the coefficients for the Z-Score model using historical economic data and an Ordinary Least Squares (OLS) regression. The regression analyzes the relationship between a country's default risk and key macroeconomic variables.
 
-### **Usage**
+#### **Usage**
 1. Ensure you have Python installed with the required libraries: `pandas` and `statsmodels`.
 2. Run the script to print the regression summary, which includes the estimated coefficients.
 
-### **Purpose**
+#### **Purpose**
 The estimated coefficients are used in the second script to compute the Z-Score, an indicator of default risk.
 
 ---
 
-## 2. Calculation of Z-Score
+### 2. Calculation of Z-Score
 
-### **File**: `calculate_zscore.py`
+#### **File**: `calculate_zscore.py`
 
-### **Description**
+#### **Description**
 This script calculates the Z-Score for specific years based on macroeconomic data and the previously estimated regression coefficients.
 
-### **Usage**
+#### **Usage**
 1. Ensure you have Python installed with `pandas`.
 2. Update the script with the estimated coefficients from the first script.
 3. Run the script to compute and print the Z-Score for each year in the dataset.
 
-### **Purpose**
+#### **Purpose**
 The Z-Score is a key metric for assessing a country's financial stability and default risk.
 
 ---
 
-## 3. Regression Analysis of CDS and Z-Score & Predictions
+### 3. Regression Analysis of CDS and Z-Score & Predictions
 
-### **File**: `cds_zscore_regression.py`
+#### **File**: `cds_zscore_regression.py`
 
-### **Description**
+#### **Description**
 This script performs a regression analysis between Credit Default Swaps (CDS) and Z-Score values. It also predicts future Z-Scores and CDS values based on historical trends.
 
-### **Usage**
+#### **Usage**
 1. Ensure you have Python installed with `pandas`, `scipy`, `sklearn`, and `numpy`.
 2. Run the script to:
    - Perform a linear regression of CDS against Z-Score.
@@ -187,12 +190,12 @@ This script performs a regression analysis between Credit Default Swaps (CDS) an
    - Predict Z-Score and CDS values for the next five years.
    - Display statistical evaluation metrics of the regression models.
 
-### **Purpose**
+#### **Purpose**
 This analysis helps in understanding the relationship between Z-Score and CDS values, providing insights into future financial stability and credit risk.
 
 ---
 
-## Requirements
+### Requirements
 Ensure you have the following Python libraries installed:
 ```bash
 pip install pandas statsmodels scipy scikit-learn numpy

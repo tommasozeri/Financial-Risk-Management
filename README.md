@@ -4,7 +4,7 @@
 ## 1) CDS STATISTICS script
 This MATLAB script processes, analyzes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx), likely containing Credit Default Swap (CDS) spreads for multiple countries.
 
-How the Code Works
+#### How the Code Works
 1. Data Loading and Preprocessing
 Loads the Excel file into MATLAB as a table.
 Converts the "Date" column to a datetime format if necessary.
@@ -39,7 +39,7 @@ This script is useful for financial risk management, particularly in analyzing h
 ### CDS Time Series script
 This MATLAB script processes time series data from an Excel file (CDSSPREADS.xlsx), typically containing CDS spreads for different countries. The goal is to clean, normalize, align, and visualize the data for comparative analysis.
 
-How the Code Works
+#### How the Code Works
 Load Data
 
 The script reads the Excel file into a MATLAB table.
@@ -58,7 +58,8 @@ The script adjusts each time series so that they all start from zero, allowing a
 Plot the Normalized and Aligned Data
 
 The script generates a line plot, displaying all time series in a single figure with a legend for each country.
-How to Use the Code
+
+#### How to Use the Code
 Ensure that MATLAB is installed and the Excel file (CDSSPREADS.xlsx) is available in the current working directory.
 Run the script in MATLAB.
 The output will be a comparative time series plot, showing the evolution of normalized CDS spreads over time.
@@ -69,7 +70,7 @@ Helps analyze trends, correlations, and relative performance between countries.
 ### Interpolated Time Series
 This MATLAB script reads, processes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx). The purpose is to handle missing values and generate individual plots for each series.
 
-How the Code Works
+#### How the Code Works
 Load Data
 
 The script imports the Excel file into a MATLAB table.
@@ -79,7 +80,7 @@ If any values are missing (NaN), they are replaced using linear interpolation.
 Plot Individual Time Series
 
 For each column (excluding the date), the script generates a separate plot, showing the historical trend.
-How to Use the Code
+#### How to Use the Code
 Ensure that MATLAB is installed and the Excel file (CDSSPREADS.xlsx) is in the working directory.
 Run the script.
 MATLAB will generate a series of plots, each representing one time series.
@@ -92,12 +93,12 @@ Helps analyze trends and patterns in the data separately.
 ## 2) Analysis of the Relationship Between CDS and Economic Variables - script
 This code performs a statistical analysis to study the relationship between Credit Default Swap prices for various countries and a series of economic and financial variables. It utilizes the R programming language and several libraries for data import, manipulation, analysis, and visualization.
 
-Requirements
+##### Requirements
 To run the code, you need to have the following R libraries installed:
 ```r
 install.packages(c("readxl", "dplyr", "tidyr", "ggplot2", "nlme", "tibble", "purrr", "splines"))
 ```
-Data Import
+##### Data Import
 The code imports data from Excel and CSV files containing information on CDS, oil and gas prices, the EUR-GBP exchange rate, government bond spreads, and financial stress indices (CISS, VIX). The datasets include:
 - CDS for various countries: UK, Turkey, Italy, Spain, Greece, France, Germany
 - Oil and gas prices.
@@ -105,7 +106,7 @@ The code imports data from Excel and CSV files containing information on CDS, oi
 - Government bond spreads between various countries and Germany**.
 - Financial stress indicators: CISS (Composite Index for Systemic Stress) and EURO STOXX50 (provides a blue-chip representation of supersector leaders in the Euro-Zone).
 
-Data Cleaning and Preparation
+##### Data Cleaning and Preparation
 After importing, the code performs the following operations:
 - Converts dates to `Date` format and selects only the relevant column of the closing price of the time series data. Then it renames columns for better readability.
 - Merges datasets based on date, retaining only common rows and converts variables to numeric format for statistical analysis.

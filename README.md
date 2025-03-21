@@ -1,7 +1,7 @@
 # Predictive Modeling of CDS Spreads
 ## Team Work Assignment - Model and Code Overview - Group 11
 
-## 1) CDS STATISTICS script
+## 1) CDS Statistics script
 This MATLAB script processes, analyzes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx), likely containing Credit Default Swap (CDS) spreads for multiple countries.
 
 ##### How the Code Works
@@ -120,7 +120,7 @@ A separate linear regression is performed for each country, where the dependent 
 The regression functions incorporate cubic splines (`bs()`) and natural polynomial functions (`ns()`) to capture nonlinear relationships between variables, where the knots where decided looking at the scatter plots below in the code.
 Linear Rgeression summaries were also printed for better readability and analysis and shown to be later used in the paper.
 
-### Visualization of Results
+##### Visualization of Results
 To better understand the relationship between CDS and economic variables and use them to decide the knots for the functions decided later scatter plots (`ggplot2`) are created to show the relationship between:
 - CDS vs Oil price.
 - CDS vs EUR/GBP exchange rate.

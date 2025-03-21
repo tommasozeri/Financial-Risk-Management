@@ -88,3 +88,48 @@ MATLAB will generate a series of plots, each representing one time series.
 Expected Output
 Multiple figures, each displaying a different time series.
 Helps analyze trends and patterns in the data separately.
+
+
+%%%%% **Analysis of the Relationship Between CDS and Economic Variables SCRIPT** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This code performs a statistical analysis to study the relationship between Credit Default Swap prices for various countries and a series of economic and financial variables. It utilizes the R programming language and several libraries for data import, manipulation, analysis, and visualization.
+
+Requirements
+To run the code, you need to have the following R libraries installed:
+```r
+install.packages(c("readxl", "dplyr", "tidyr", "ggplot2", "nlme", "tibble", "purrr", "splines"))
+```
+Data Import
+The code imports data from Excel and CSV files containing information on CDS, oil and gas prices, the EUR-GBP exchange rate, government bond spreads, and financial stress indices (CISS, VIX). The datasets include:
+- CDS for various countries: UK, Turkey, Italy, Spain, Greece, France, Germany
+- Oil and gas prices.
+- EUR/GBP exchange rates.
+- Government bond spreads between various countries and Germany**.
+- Financial stress indicators: CISS (Composite Index for Systemic Stress) and EURO STOXX50 (provides a blue-chip representation of supersector leaders in the Euro-Zone).
+
+Data Cleaning and Preparation
+After importing, the code performs the following operations:
+- Converts dates to `Date` format ands selects only the relevant column of the closing price of the time series data. Then it renames columns for better readability.
+- Merges datasets based on date, retaining only common rows and converts variables to numeric format for statistical analysis.
+
+**Linear Regression Models** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A separate linear regression is performed for each country, where the dependent variable is the CDS price, while the independent variables include:
+- Oil and gas prices.
+- Exchange rates.
+- Government bond spreads (Spread with the BUND Bond and the selected countries, while for Germany we used the Spread to the US 10 Year Treasury Bond.
+- Financial stress indices cited before.
+The regression functions incorporate cubic splines (`bs()`) and natural polynomial functions (`ns()`) to capture nonlinear relationships between variables, where the knots where decided looking at the scatter plots below in the code.
+Linear Rgeression summaries were also printed for better readability and analysis and shown to be later used in the paper.
+
+%%% **Visualization of Results** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+To better understand the relationship between CDS and economic variables and use them to decide the knots for the functions decided later scatter plots (`ggplot2`) are created to show the relationship between:
+- CDS vs Oil price.
+- CDS vs EUR/GBP exchange rate.
+- CDS vs Gas price.
+- CDS vs Government bond spreads.
+- CDS vs Financial stress indices (CISS, VIX).
+After this, some other scatter plots, including the linear regression line in red, were plotted to assess the differences between the values predicted by the model and the values of actual CDS prices. This was done also to assess the accuracy of the predictions.
+
+This script was really useful because it highlited the correlation between the CDS prices and the various varible s that we included in the regression which were picked by us in a way that they would also reflect the different macroeconomic conditions that had affected the time period that was taken into consideration in the analysis. 
+
+

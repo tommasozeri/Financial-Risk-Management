@@ -4,7 +4,7 @@
 ## 1) CDS STATISTICS script
 This MATLAB script processes, analyzes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx), likely containing Credit Default Swap (CDS) spreads for multiple countries.
 
-#### How the Code Works
+##### How the Code Works
 1. Data Loading and Preprocessing
 Loads the Excel file into MATLAB as a table.
 Converts the "Date" column to a datetime format if necessary.
@@ -39,27 +39,27 @@ This script is useful for financial risk management, particularly in analyzing h
 ### CDS Time Series script
 This MATLAB script processes time series data from an Excel file (CDSSPREADS.xlsx), typically containing CDS spreads for different countries. The goal is to clean, normalize, align, and visualize the data for comparative analysis.
 
-#### How the Code Works
-Load Data
+##### How the Code Works
+Loading Data.
 
 The script reads the Excel file into a MATLAB table.
-Interpolate Missing Values
+Interpolating Missing Values.
 
 If any values are missing (NaN), they are filled using linear interpolation.
-Filter Out Rows with Remaining Missing Values
+Filtering Out Rows with Remaining Missing Values
 
 After interpolation, any rows still containing NaN values are removed to ensure a clean dataset.
-Normalize Each Series
+Normalizing Each Series.
 
 Each time series (except the date column) is scaled to the range [0,1] to make them comparable.
-Align Initial Values
+Aligning Initial Values.
 
 The script adjusts each time series so that they all start from zero, allowing a direct comparison of their relative movements over time.
-Plot the Normalized and Aligned Data
+Plotting the Normalized and Aligned Data.
 
 The script generates a line plot, displaying all time series in a single figure with a legend for each country.
 
-#### How to Use the Code
+##### How to Use the Code
 Ensure that MATLAB is installed and the Excel file (CDSSPREADS.xlsx) is available in the current working directory.
 Run the script in MATLAB.
 The output will be a comparative time series plot, showing the evolution of normalized CDS spreads over time.
@@ -70,7 +70,7 @@ Helps analyze trends, correlations, and relative performance between countries.
 ### Interpolated Time Series
 This MATLAB script reads, processes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx). The purpose is to handle missing values and generate individual plots for each series.
 
-#### How the Code Works
+##### How the Code Works
 Load Data
 
 The script imports the Excel file into a MATLAB table.
@@ -80,7 +80,7 @@ If any values are missing (NaN), they are replaced using linear interpolation.
 Plot Individual Time Series
 
 For each column (excluding the date), the script generates a separate plot, showing the historical trend.
-#### How to Use the Code
+##### How to Use the Code
 Ensure that MATLAB is installed and the Excel file (CDSSPREADS.xlsx) is in the working directory.
 Run the script.
 MATLAB will generate a series of plots, each representing one time series.
@@ -135,7 +135,7 @@ This script was really useful because it highlited the correlation between the C
 
 ## 3)UK ANALYSIS
 
-### Overview
+##### Overview
 This repository contains three Python scripts that perform financial risk analysis using economic indicators. The scripts estimate the coefficients for a Z-Score model, calculate the Z-Score for given economic conditions, and use regression analysis to predict Credit Default Swaps (CDS) values based on Z-Scores.
 
 
@@ -143,14 +143,14 @@ This repository contains three Python scripts that perform financial risk analys
 
 #### **File**: `estimate_zscore_coefficients.py`
 
-#### **Description**
+##### **Description**
 This script estimates the coefficients for the Z-Score model using historical economic data and an Ordinary Least Squares (OLS) regression. The regression analyzes the relationship between a country's default risk and key macroeconomic variables.
 
-#### **Usage**
+##### **Usage**
 1. Ensure you have Python installed with the required libraries: `pandas` and `statsmodels`.
 2. Run the script to print the regression summary, which includes the estimated coefficients.
 
-#### **Purpose**
+##### **Purpose**
 The estimated coefficients are used in the second script to compute the Z-Score, an indicator of default risk.
 
 
@@ -159,15 +159,15 @@ The estimated coefficients are used in the second script to compute the Z-Score,
 
 #### **File**: `calculate_zscore.py`
 
-#### **Description**
+##### **Description**
 This script calculates the Z-Score for specific years based on macroeconomic data and the previously estimated regression coefficients.
 
-#### **Usage**
+##### **Usage**
 1. Ensure you have Python installed with `pandas`.
 2. Update the script with the estimated coefficients from the first script.
 3. Run the script to compute and print the Z-Score for each year in the dataset.
 
-#### **Purpose**
+##### **Purpose**
 The Z-Score is a key metric for assessing a country's financial stability and default risk.
 
 
@@ -175,10 +175,10 @@ The Z-Score is a key metric for assessing a country's financial stability and de
 
 #### **File**: `cds_zscore_regression.py`
 
-#### **Description**
+##### **Description**
 This script performs a regression analysis between Credit Default Swaps (CDS) and Z-Score values. It also predicts future Z-Scores and CDS values based on historical trends.
 
-#### **Usage**
+##### **Usage**
 1. Ensure you have Python installed with `pandas`, `scipy`, `sklearn`, and `numpy`.
 2. Run the script to:
    - Perform a linear regression of CDS against Z-Score.
@@ -186,11 +186,11 @@ This script performs a regression analysis between Credit Default Swaps (CDS) an
    - Predict Z-Score and CDS values for the next five years.
    - Display statistical evaluation metrics of the regression models.
 
-#### **Purpose**
+##### **Purpose**
 This analysis helps in understanding the relationship between Z-Score and CDS values, providing insights into future financial stability and credit risk.
 
 
-### Requirements
+##### Requirements
 Ensure you have the following Python libraries installed:
 ```bash
 pip install pandas statsmodels scipy scikit-learn numpy

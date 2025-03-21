@@ -141,7 +141,6 @@ This script was really useful because it highlited the correlation between the C
 ### Overview
 This repository contains three Python scripts that perform financial risk analysis using economic indicators. The scripts estimate the coefficients for a Z-Score model, calculate the Z-Score for given economic conditions, and use regression analysis to predict Credit Default Swaps (CDS) values based on Z-Scores.
 
----
 
 ### 1. Estimation of Z-Score Coefficients
 
@@ -157,7 +156,7 @@ This script estimates the coefficients for the Z-Score model using historical ec
 #### **Purpose**
 The estimated coefficients are used in the second script to compute the Z-Score, an indicator of default risk.
 
----
+
 
 ### 2. Calculation of Z-Score
 
@@ -174,7 +173,6 @@ This script calculates the Z-Score for specific years based on macroeconomic dat
 #### **Purpose**
 The Z-Score is a key metric for assessing a country's financial stability and default risk.
 
----
 
 ### 3. Regression Analysis of CDS and Z-Score & Predictions
 
@@ -194,7 +192,6 @@ This script performs a regression analysis between Credit Default Swaps (CDS) an
 #### **Purpose**
 This analysis helps in understanding the relationship between Z-Score and CDS values, providing insights into future financial stability and credit risk.
 
----
 
 ### Requirements
 Ensure you have the following Python libraries installed:
@@ -202,7 +199,6 @@ Ensure you have the following Python libraries installed:
 pip install pandas statsmodels scipy scikit-learn numpy
 ```
 
----
 
 
 

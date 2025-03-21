@@ -1,6 +1,5 @@
 # Predictive Modeling of CDS Spreads
-## Team Work Assignment - Model and Code Overview
-### Group 11
+## Team Work Assignment - Model and Code Overview - Group 11
 
 ## 1) CDS STATISTICS script
 This MATLAB script processes, analyzes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx), likely containing Credit Default Swap (CDS) spreads for multiple countries.

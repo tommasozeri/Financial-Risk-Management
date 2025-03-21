@@ -133,7 +133,7 @@ This script was really useful because it highlited the correlation between the C
 
 ---
 
-## 3)United Kingdom Analysis
+## 3) United Kingdom Analysis
 
 ##### Overview
 This repository contains three Python scripts that perform financial risk analysis using economic indicators. The scripts estimate the coefficients for a Z-Score model, calculate the Z-Score for given economic conditions, and use regression analysis to predict Credit Default Swaps (CDS) values based on Z-Scores.

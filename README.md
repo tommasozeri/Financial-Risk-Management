@@ -132,4 +132,73 @@ After this, some other scatter plots, including the linear regression line in re
 
 This script was really useful because it highlited the correlation between the CDS prices and the various varible s that we included in the regression which were picked by us in a way that they would also reflect the different macroeconomic conditions that had affected the time period that was taken into consideration in the analysis. 
 
+%%% **UK ANALYSIS** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+## Overview
+This repository contains three Python scripts that perform financial risk analysis using economic indicators. The scripts estimate the coefficients for a Z-Score model, calculate the Z-Score for given economic conditions, and use regression analysis to predict Credit Default Swaps (CDS) values based on Z-Scores.
+
+---
+
+## 1. Estimation of Z-Score Coefficients
+
+### **File**: `estimate_zscore_coefficients.py`
+
+### **Description**
+This script estimates the coefficients for the Z-Score model using historical economic data and an Ordinary Least Squares (OLS) regression. The regression analyzes the relationship between a country's default risk and key macroeconomic variables.
+
+### **Usage**
+1. Ensure you have Python installed with the required libraries: `pandas` and `statsmodels`.
+2. Run the script to print the regression summary, which includes the estimated coefficients.
+
+### **Purpose**
+The estimated coefficients are used in the second script to compute the Z-Score, an indicator of default risk.
+
+---
+
+## 2. Calculation of Z-Score
+
+### **File**: `calculate_zscore.py`
+
+### **Description**
+This script calculates the Z-Score for specific years based on macroeconomic data and the previously estimated regression coefficients.
+
+### **Usage**
+1. Ensure you have Python installed with `pandas`.
+2. Update the script with the estimated coefficients from the first script.
+3. Run the script to compute and print the Z-Score for each year in the dataset.
+
+### **Purpose**
+The Z-Score is a key metric for assessing a country's financial stability and default risk.
+
+---
+
+## 3. Regression Analysis of CDS and Z-Score & Predictions
+
+### **File**: `cds_zscore_regression.py`
+
+### **Description**
+This script performs a regression analysis between Credit Default Swaps (CDS) and Z-Score values. It also predicts future Z-Scores and CDS values based on historical trends.
+
+### **Usage**
+1. Ensure you have Python installed with `pandas`, `scipy`, `sklearn`, and `numpy`.
+2. Run the script to:
+   - Perform a linear regression of CDS against Z-Score.
+   - Calculate the adjusted Z-Score based on regression coefficients.
+   - Predict Z-Score and CDS values for the next five years.
+   - Display statistical evaluation metrics of the regression models.
+
+### **Purpose**
+This analysis helps in understanding the relationship between Z-Score and CDS values, providing insights into future financial stability and credit risk.
+
+---
+
+## Requirements
+Ensure you have the following Python libraries installed:
+```bash
+pip install pandas statsmodels scipy scikit-learn numpy
+```
+
+---
+
+
 

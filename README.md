@@ -1,6 +1,6 @@
 # Financial-Risk-Management
 
-**CDS STATISTICS script**%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+**1)CDS STATISTICS script**%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 This MATLAB script processes, analyzes, and visualizes time series data from an Excel file (CDSSPREADS.xlsx), likely containing Credit Default Swap (CDS) spreads for multiple countries.
 
 How the Code Works
@@ -38,7 +38,7 @@ Use Case
 This script is useful for financial risk management, particularly in analyzing how different countries' CDS spreads behave over time, their volatility, and their correlations.
 
 
-**CDS_HISTORICALSERIES Script**%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+**CDS Time Series script**%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 This MATLAB script processes time series data from an Excel file (CDSSPREADS.xlsx), typically containing CDS spreads for different countries. The goal is to clean, normalize, align, and visualize the data for comparative analysis.
 
 How the Code Works
@@ -90,7 +90,7 @@ Multiple figures, each displaying a different time series.
 Helps analyze trends and patterns in the data separately.
 
 
-%%%%% **Analysis of the Relationship Between CDS and Economic Variables SCRIPT** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% **2)Analysis of the Relationship Between CDS and Economic Variables - script** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This code performs a statistical analysis to study the relationship between Credit Default Swap prices for various countries and a series of economic and financial variables. It utilizes the R programming language and several libraries for data import, manipulation, analysis, and visualization.
 
@@ -109,7 +109,7 @@ The code imports data from Excel and CSV files containing information on CDS, oi
 
 Data Cleaning and Preparation
 After importing, the code performs the following operations:
-- Converts dates to `Date` format ands selects only the relevant column of the closing price of the time series data. Then it renames columns for better readability.
+- Converts dates to `Date` format and selects only the relevant column of the closing price of the time series data. Then it renames columns for better readability.
 - Merges datasets based on date, retaining only common rows and converts variables to numeric format for statistical analysis.
 
 **Linear Regression Models** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -132,7 +132,7 @@ After this, some other scatter plots, including the linear regression line in re
 
 This script was really useful because it highlited the correlation between the CDS prices and the various varible s that we included in the regression which were picked by us in a way that they would also reflect the different macroeconomic conditions that had affected the time period that was taken into consideration in the analysis. 
 
-%%% **UK ANALYSIS** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% **3)UK ANALYSIS** %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ## Overview
 This repository contains three Python scripts that perform financial risk analysis using economic indicators. The scripts estimate the coefficients for a Z-Score model, calculate the Z-Score for given economic conditions, and use regression analysis to predict Credit Default Swaps (CDS) values based on Z-Scores.
